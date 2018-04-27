@@ -1,0 +1,36 @@
+MVC : Model View Controller
+
+Typical servlet : HTML code embedded into Java code, Typical JSP : Java code embedded into HTML code
+
+M odel : data
+V iew : data
+C ontroller : manages application flow, makes a call to a some sort of service producing model and then passes on the model to the view.
+
+Controller -> (Passes Model) -> to View
+
+Inversion of Control or Dependency injection
+
+Browser (request) -> Front controller -> Handler Mapping (Scan the URL; tells the exact address of the component which can generate data for the web request requested for -> Front
+Controller -> Data generator (prepares data, creates Java object to hold the data - may take help of other Java classes if it is required to do the job) (Java Object which holding data + 
+Name of the component which is going to retrieve data from the Java Object + mixing with HTML to generate actual response -> Front Handler -> View resolver (tells the address of the view maker)
+-> Front Controller (Java Object) -> Final response builder (creates final response with HTML and Java Objects) -> Browser
+
+Client -> Dispatcher Servlet -> Handler Mapping -> Dispatcher Servlet -> Controller -> Dispatcher Servlet -> View resolver -> Dispatcher Servlet -> JSP/ Velocity/ Freemaker -> Dispatcher Servlet
+-> Client
+
+Java object with data : model
+
+/ : Dispatcher Servlet : Front handler
+
+There are many HandlerMapping classes
+
+Class not found exception for DispatcherServlet:
+	need to add the "Maven Dependency" in the Deployment Assembly
+	    right click on project and choose properties.
+	    click on Deployment Assembly.
+	    click add
+	    click on "Java Build Path Entries"
+	    select Maven Dependencies"
+	    click Finish.
+		Rebuild and deploy again
+		
