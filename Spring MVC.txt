@@ -35,3 +35,10 @@ Class not found exception for DispatcherServlet:
 	    click Finish.
 		Rebuild and deploy again
 		
+Annotation:
+no need to extend
+no need to specify in dispatcher servlet
+If need to use annotation, need to add that package or class for component scan
+
+front controller reads spring-dispatcher-servlet to process further. When "context:component-scan" is used, it will load all the classes in the base package.
+@RequestMapping is used to detect the method to execute for a url. matching url against RequestMapping values
