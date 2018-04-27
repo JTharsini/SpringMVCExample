@@ -21,6 +21,7 @@ Client -> Dispatcher Servlet -> Handler Mapping -> Dispatcher Servlet -> Control
 Java object with data : model
 
 / : Dispatcher Servlet : Front handler
+Handler mapping resolves the url to actual class which can serve client
 
 There are many HandlerMapping classes
 
