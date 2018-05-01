@@ -3,6 +3,7 @@ package com.jeya.springmvc.controller;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,9 +14,20 @@ import com.jeya.springmvc.model.Student;
 
 @Controller
 public class StudentAdmissionController {
+	@ModelAttribute
+	public void addingCommonObjects(Model model)
+	{
+		// spring mvc will make call for a method annotated with ModelAttribute before
+		// executing a method to serve a request
+		model.addAttribute("headerMessage", "Chava Hindu College");
+		// modelAndView.addObject("headerMessage", "Chava Hindu College"); in each method can be replaced by adding
+		// this method annotated with ModelAttribute
+	}
+	
 	@RequestMapping(value = "/admissionForm.html", method = RequestMethod.GET)
 	public ModelAndView getAdmissionForm() {
 		ModelAndView modelAndView = new ModelAndView("AdmissionForm");
+		//modelAndView.addObject("headerMessage", "Chava Hindu College");
 		return modelAndView;
 	}
 
@@ -39,7 +51,7 @@ public class StudentAdmissionController {
 
 		ModelAndView modelAndView = new ModelAndView("AdmissionSuccess");
 
-		modelAndView.addObject("headerMessage", "Details submitted by you");
+		//modelAndView.addObject("headerMessage", "Chava Hindu College");
 		modelAndView.addObject("student", student);
 		return modelAndView;
 	}
@@ -52,7 +64,7 @@ public class StudentAdmissionController {
 		// should match
 		ModelAndView modelAndView = new ModelAndView("AdmissionSuccess");
 
-		modelAndView.addObject("headerMessage", "Details submitted by you");
+		//modelAndView.addObject("headerMessage", "Chava Hindu College");
 		return modelAndView;
 	}
 }

@@ -4,6 +4,7 @@
 </head>
 <body>
 	<h1>STUDENT ADMISSION FORM FOR ENGINEERING COURSES</h1>
+	<h2>${headerMessage}</h2>
 	<form action="/FirstSpringMVCProject/submitAdmissionForm3.html"
 		method="post">
 		<p>
