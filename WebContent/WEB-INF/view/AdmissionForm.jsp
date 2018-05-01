@@ -4,7 +4,7 @@
 </head>
 <body>
 	<h1>STUDENT ADMISSION FORM FOR ENGINEERING COURSES</h1>
-	<form action="/FirstSpringMVCProject/submitAdmissionForm2.html"
+	<form action="/FirstSpringMVCProject/submitAdmissionForm3.html"
 		method="post">
 		<p>
 			Student's Name: <input type="text" name="studentName" />
