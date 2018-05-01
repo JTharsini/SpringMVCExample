@@ -1,5 +1,8 @@
 package com.jeya.springmvc.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -65,6 +68,38 @@ public class StudentAdmissionController {
 		ModelAndView modelAndView = new ModelAndView("AdmissionSuccess");
 
 		//modelAndView.addObject("headerMessage", "Chava Hindu College");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/submitAdmissionForm4.html", method = RequestMethod.POST)
+	public ModelAndView submitAdmissionFormWithVariousDataType(@RequestParam("studentName") String name, 
+																@RequestParam("studentHobby") String hobby,
+																@RequestParam("studentMobile") String mobile,
+																@RequestParam("studentDOB") String DOB,
+																@RequestParam("studentSkills") String[] skillsSet)
+	{
+		Student student = new Student();
+		try
+		{
+			student.setStudentName(name);
+			student.setStudentHobby(hobby);
+			student.setStudentMobile(Long.parseLong(mobile));
+			SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+			student.setStudentDOB(format.parse(DOB));
+			
+			List<String> skillsSetList = new ArrayList<>();
+			for(int i = 0; i < skillsSet.length; i++)
+			{
+				skillsSetList.add(skillsSet[i]);
+			}
+			student.setStudentSkills(skillsSetList);
+		}
+		catch(Exception e)
+		{
+			
+		}
+		ModelAndView modelAndView = new ModelAndView("AdmissionSuccess");
+		modelAndView.addObject("student", student);
 		return modelAndView;
 	}
 }
