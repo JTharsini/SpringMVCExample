@@ -55,3 +55,8 @@ ABCD as mobile : auto binding fails because can't convert ABCD to long
 Handle: resend the form with BindingResult
 
 Need to bind except one value: @InitBinder and WebDataBinder
+
+By default date format : yyyy/mm/dd: to change it to yyyy****mm****dd - need to change property editors : CustomDateEditor with registerCustomEditor
+Other examples for Property editors : FileEditor, ClassEditor, CustomMemberEditor
+SpringMVC uses property editor classes in order to perform type conversion while performing data binding.
+Customize data binding for a type: by editing property editor for that type

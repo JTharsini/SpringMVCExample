@@ -1,10 +1,12 @@
 package com.jeya.springmvc.controller;
 
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +26,9 @@ public class StudentAdmissionController {
 	public void goingToDisableAFieldBinding(WebDataBinder binder)
 	{
 		binder.setDisallowedFields(new String[]{"studentMobile"});
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy****mm****dd");
+		binder.registerCustomEditor(Date.class, "studentDOB", new CustomDateEditor(dateFormat, false));
 	}
 	
 	@ModelAttribute
