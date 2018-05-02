@@ -5,7 +5,7 @@
 <body>
 	<h1>STUDENT ADMISSION FORM FOR ENGINEERING COURSES</h1>
 	<h2>${headerMessage}</h2>
-	<form action="/FirstSpringMVCProject/submitAdmissionForm4.html"
+	<form action="/FirstSpringMVCProject/submitAdmissionForm3.html"
 		method="post">
 		<table>
 		<tr>
@@ -26,6 +26,14 @@
 													<option value="Spring Core">Spring Core</option>
 													<option value="Spring MVC">Spring MVC</option>
 												</select></td>
+		</tr>
+		</table>
+		<table>
+		<tr>
+			<td>Country: <input type="text" name="studentAddress.country" /></td>
+			<td>City: <input type="text" name="studentAddress.city" /></td>
+			<td>Street: <input type="text" name="studentAddress.street" /></td>
+			<td>Pincode: <input type="text" name="studentAddress.pincode" /></td>
 		</tr>
 		<tr><td><input type="submit" value="Submit by clicking here" /></td></tr>
 		</table>
