@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeya.springmvc.model.Student;
+import com.jeya.springmvc.springspeccustom.StudentNameEditor;
 
 @Controller
 public class StudentAdmissionController {
@@ -29,6 +30,9 @@ public class StudentAdmissionController {
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy****mm****dd");
 		binder.registerCustomEditor(Date.class, "studentDOB", new CustomDateEditor(dateFormat, false));
+		binder.registerCustomEditor(String.class, "studentName", new StudentNameEditor()); // custom property editor class is registered here
+		// since we registered our custom class for studentName, Spring MVC will consult that class
+		// before bind a value for it
 	}
 	
 	@ModelAttribute

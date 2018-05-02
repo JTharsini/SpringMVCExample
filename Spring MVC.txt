@@ -60,3 +60,7 @@ By default date format : yyyy/mm/dd: to change it to yyyy****mm****dd - need to 
 Other examples for Property editors : FileEditor, ClassEditor, CustomMemberEditor
 SpringMVC uses property editor classes in order to perform type conversion while performing data binding.
 Customize data binding for a type: by editing property editor for that type
+
+Custom property editor classes can be written other than built-in property editor classes
+Specific requirement: need to write custom property class:
+Eg: Mr/Miss/Mrs in the name of student is needed and default value is Miss
