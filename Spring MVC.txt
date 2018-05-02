@@ -52,4 +52,6 @@ No resources are available to process this URL
 Relative url can be achieved by having @RequestMapping annotation in class level
 
 ABCD as mobile : auto binding fails because can't convert ABCD to long
-Handle: resend the form 
+Handle: resend the form with BindingResult
+
+Need to bind except one value: @InitBinder and WebDataBinder
