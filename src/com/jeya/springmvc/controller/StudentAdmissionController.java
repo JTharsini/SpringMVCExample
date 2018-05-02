@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -100,6 +101,20 @@ public class StudentAdmissionController {
 		}
 		ModelAndView modelAndView = new ModelAndView("AdmissionSuccess");
 		modelAndView.addObject("student", student);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/submitAdmissionForm5.html", method = RequestMethod.POST)
+	public ModelAndView submitAdmissionFormWithErrorHandling(@ModelAttribute("student") Student student, BindingResult result) {
+		// BindingResult should be placed immediately after the parameter annotated with @ModelAttribute
+		if(result.hasErrors())
+		{
+			ModelAndView modelAndView = new ModelAndView("AdmissionForm");
+			return modelAndView;
+		}
+		ModelAndView modelAndView = new ModelAndView("AdmissionSuccess");
+
+		//modelAndView.addObject("headerMessage", "Chava Hindu College");
 		return modelAndView;
 	}
 }
