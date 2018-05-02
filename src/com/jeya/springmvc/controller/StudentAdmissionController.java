@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -122,7 +124,8 @@ public class StudentAdmissionController {
 	}
 	
 	@RequestMapping(value = "/submitAdmissionForm5.html", method = RequestMethod.POST)
-	public ModelAndView submitAdmissionFormWithErrorHandling(@ModelAttribute("student") Student student, BindingResult result) {
+	public ModelAndView submitAdmissionFormWithErrorHandling(@Valid @ModelAttribute("student") Student student, BindingResult result) {
+		// @Valid : to instruct SpringMVC, to check for form validation whenever student value is binding
 		// BindingResult should be placed immediately after the parameter annotated with @ModelAttribute
 		if(result.hasErrors())
 		{

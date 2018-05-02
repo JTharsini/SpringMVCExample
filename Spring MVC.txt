@@ -64,3 +64,50 @@ Customize data binding for a type: by editing property editor for that type
 Custom property editor classes can be written other than built-in property editor classes
 Specific requirement: need to write custom property class:
 Eg: Mr/Miss/Mrs in the name of student is needed and default value is Miss
+
+Form validation eg:
+2 < Hobby char count < 30 : By @Size annotation
+need to activate form validation by @Valid annotation
+
+to use form validation, need to use a third party implementation for JSR 303, JSR 349 : Eg: Hibernate validator library, Apache bean validator library
+
+JSR (Java Specification Request) standard by JCP (Java Community Process)
+
+******************************************************************************************************************************************
+
+javax.servlet.ServletException: Error instantiating servlet class org.springframework.web.servlet.DispatcherServlet
+	org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1539)
+	org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1495)
+	java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	java.lang.Thread.run(Unknown Source)
+
+
+root cause
+java.lang.ClassNotFoundException: org.springframework.web.servlet.DispatcherServlet
+	org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1352)
+	org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1180)
+	org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:620)
+	org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:502)
+	org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1132)
+	org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:684)
+	org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1539)
+	org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1495)
+	java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	java.lang.Thread.run(Unknown Source)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Solution: Project right click -> properties -> Deployment Assembly -> Add -> Java Build Path Entries -> Next -> Maven Dependencies -> Finish
+-> Apply -> OK
+************************************************************************************************************************************************
