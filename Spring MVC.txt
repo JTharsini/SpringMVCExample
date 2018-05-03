@@ -115,3 +115,14 @@ Key for message for a validation: [Validation annotation name].[Object reference
 If not found that key it will search for : [Validation annotation name].[Field name]
 If not found that key it will search for : [Validation annotation name].[Field type] [Eg: (Size.java.lang.String)]
 If not found that key it will search for : Size (default message by spring framework)
+
+************************************************************************************************************************************************
+place holder for validation messages from property files:
+{0} : name of the field
+{1}, {2}, ... : arguments passed to the annotation
+Spring MVC uses argument order alphabetically:
+==> max - {1}, min - {2}
+
+<property name="cacheSeconds" value="1" /> : Tell Spring mvc to load changes in property files for every second of runtime: not to recommend in production: only in Development
+unnecessary performance issue
+

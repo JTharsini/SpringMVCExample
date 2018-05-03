@@ -28,6 +28,7 @@
 	</bean>
 	
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="basename" value="/WEB-INF/resources/studentmessages"></property>	
+		<property name="basename" value="/WEB-INF/resources/studentmessages"></property>
+		<property name="cacheSeconds" value="1" />
 	</bean>
 </beans>
