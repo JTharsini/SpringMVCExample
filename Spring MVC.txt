@@ -129,3 +129,9 @@ unnecessary performance issue
 ************************************************************************************************************************************************
 User name should not contain numeric values: By @Pattern (regular expression)
 Date of birth should not be in future : By @Past
+Mobile no <= 2222 : By @Max
+
+@Future
+@Min
+@NotNull
+@NotEmpty : not supported by bean validation spec: only in Hibernate validator
