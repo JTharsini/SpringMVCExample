@@ -111,3 +111,7 @@ java.lang.ClassNotFoundException: org.springframework.web.servlet.DispatcherServ
 Solution: Project right click -> properties -> Deployment Assembly -> Add -> Java Build Path Entries -> Next -> Maven Dependencies -> Finish
 -> Apply -> OK
 ************************************************************************************************************************************************
+Key for message for a validation: [Validation annotation name].[Object reference name].[Field name]
+If not found that key it will search for : [Validation annotation name].[Field name]
+If not found that key it will search for : [Validation annotation name].[Field type] [Eg: (Size.java.lang.String)]
+If not found that key it will search for : Size (default message by spring framework)
