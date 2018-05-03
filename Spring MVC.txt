@@ -128,4 +128,4 @@ unnecessary performance issue
 
 ************************************************************************************************************************************************
 User name should not contain numeric values: By @Pattern (regular expression)
-Date of birth should not be in future : 
+Date of birth should not be in future : By @Past

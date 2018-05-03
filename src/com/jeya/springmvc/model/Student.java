@@ -3,6 +3,7 @@ package com.jeya.springmvc.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -15,6 +16,8 @@ public class Student {
 	private String studentHobby;
 
 	private Long studentMobile;
+	
+	@Past
 	private Date studentDOB;
 	private List<String> studentSkills;
 	
