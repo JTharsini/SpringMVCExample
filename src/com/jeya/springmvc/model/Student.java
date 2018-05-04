@@ -8,14 +8,16 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.jeya.springmvc.springspeccustom.IsValidHobby;
+
 public class Student {
 	@Pattern(regexp="[^0-9]*")
 	private String studentName;
 	
 	//@Size(min=2, max=30, message="please enter a value for student hobby field between {min} and {max} characters")
-	@Size(min=2, max=30)
+	@Size(min=2, max=30) @IsValidHobby
 	private String studentHobby;
-
+	
 	@Max(2222)
 	private Long studentMobile;
 	

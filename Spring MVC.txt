@@ -135,3 +135,5 @@ Mobile no <= 2222 : By @Max
 @Min
 @NotNull
 @NotEmpty : not supported by bean validation spec: only in Hibernate validator
+
+StudentHobby should be valid : One of the following: Music, Football, Cricket, Hockey : Custom form validation annotation is needed
