@@ -43,6 +43,7 @@ public class StudentAdmissionController {
 		// spring mvc will make call for a method annotated with ModelAttribute before
 		// executing a method to serve a request
 		model.addAttribute("headerMessage", "Chava Hindu College");
+		model.addAttribute("labelSubmitAdmissionForm", "Submit by clicking here");
 		// modelAndView.addObject("headerMessage", "Chava Hindu College"); in each method can be replaced by adding
 		// this method annotated with ModelAttribute
 	}

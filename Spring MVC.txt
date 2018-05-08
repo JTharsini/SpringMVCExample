@@ -158,3 +158,6 @@ needed to be modified as
 </mvc:interceptors>
 
 ---------------------------------------------------------------------------------------------------------
+Localization:
+
+1. replace hardwired label in English with a new language
