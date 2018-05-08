@@ -15,7 +15,7 @@ public class Student {
 	private String studentName;
 	
 	//@Size(min=2, max=30, message="please enter a value for student hobby field between {min} and {max} characters")
-	@Size(min=2, max=30) @IsValidHobby
+	@Size(min=2, max=30) @IsValidHobby(listOfValidHobbies = "Music|Football|Cricket|Hockey")
 	private String studentHobby;
 	
 	@Max(2222)

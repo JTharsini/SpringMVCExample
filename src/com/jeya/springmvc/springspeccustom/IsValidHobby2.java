@@ -13,12 +13,7 @@ import javax.validation.Payload;
 @Constraint(validatedBy = HobbyValidator.class) // use this class to validate user input
 @Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface IsValidHobby { // name of the annotation
-	String listOfValidHobbies() default "Music|Football|Cricket|Hockey";
-	// type of parameter to accept is String
-	// if we don't put default, parameter to specify inside isValidHobby annotation is mandatory
-	// Having default makes that parameter as optional
-	
+public @interface IsValidHobby2 { // name of the annotation
 	String message() default "Please provide a valid Hobby; "
 			+ "accepted hobbies are - Music, Football, Cricket and Hockey (choose anyone)";
 	// message to show
