@@ -140,3 +140,21 @@ StudentHobby should be valid : One of the following: Music, Football, Cricket, H
 
 Application should work on all weekdays except Sunday: By interceptor
 
+---------------------------------------------------------------------------------------------------------
+
+make interceptor to work only for a particular url
+
+<mvc:interceptors>
+	<bean class="com.jeya.springmvc.springspeccustom.DayOfWeekBasedAccessInterceptor" />
+</mvc:interceptors>
+
+needed to be modified as
+
+<mvc:interceptors>
+	<mvc:interceptor>
+		<mvc:mapping path="/admissionForm.html" />
+		<bean class="com.jeya.springmvc.springspeccustom.DayOfWeekBasedAccessInterceptor" />
+	</mvc:interceptor>
+</mvc:interceptors>
+
+---------------------------------------------------------------------------------------------------------
