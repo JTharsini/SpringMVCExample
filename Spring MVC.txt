@@ -226,3 +226,25 @@ status code 200: server has processed the request successfully
 in exception handling : error with 200 status code : wrong
 can change status code by annotated error handling method with
 @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+
+------------------------------------------------------------------------------------------------------------------------
+
+Web service application (service provider) lets other applications (client application) to make call to its methods
+
+-language may same or differ
+-client and server need not be in same machine
+-client and server in same network (LAN/WAN/Internet)
+
+Web service can be either SOAP or REST: based on which guideline it follows:
+
+SOAP:
+
+Client needs to know some basic information about server: without that information, it can't communicate with server
+- exact location/address of service provider.
+- exact signature of all exposed methods of service provider..
+
+client get such information using a XML file provided by server (WSDL : Web Service Description Language)
+Communication between client and service provider : by SOAP protocol ==> SOAP based web application and SOAP based client
+
+mostly they use http while sending messages between them. SMTP, FTP, JMS etc also possible as per requirement
+
