@@ -70,4 +70,20 @@
 		<property name="cookieName" value="themeCookie" />
 		<property name="cookieMaxAge" value="10" /> <!-- 10 seconds -->
 	</bean>
+	
+	<bean id="simpleMappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<map>
+				<entry key="NullPointerException" value="ViewNullPointerException"/>
+				<entry key="IOException" value="ViewIOException"/>
+			</map>	
+		</property>
+		
+		<!-- This is the default error webpage or the generic error webpage -->
+		<property name="defaultErrorView" value="ViewException"/>
+		
+		<!-- Name of logger to use to log exceptions. Unset by default, so logging disabled -->
+		<!-- print exception before return view page -->
+		<property name="warnLogCategory" value="MVCLogger"/>
+	</bean>
 </beans>

@@ -195,3 +195,22 @@ handle exception in each and every controller class is painful. ==> @ControllerA
 to test that use: http://localhost:8090/FirstSpringMVCProject/admissionError
 important: class annotated with @ControllerAdvice should be in <context:component-scan base-package="com.jeya.springmvc.controller" />
 package
+
+If we are going to have a simple webpage with an error message for exception handling like GlobalExceptionHandlerMethods class.
+We don't need to write separate class for that. instead having following in dispatcher-servlet is enough.
+
+<bean id="simpleMappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<map>
+				<entry key="NullPointerException" value="ViewNullPointerException"/>
+				<entry key="IOException" value="ViewIOException"/>
+			</map>	
+		</property>
+		
+		<!-- This is the default error webpage or the generic error webpage -->
+		<property name="defaultErrorView" value="ViewException"/>
+		
+		<!-- Name of logger to use to log exceptions. Unset by default, so logging disabled -->
+		<property name="warnLogCategory" value="MVCLogger"/>
+	</bean>
+	
