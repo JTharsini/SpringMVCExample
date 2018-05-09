@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=iCQspqBpOB0
+
 MVC : Model View Controller
 
 Typical servlet : HTML code embedded into Java code, Typical JSP : Java code embedded into HTML code
@@ -181,3 +183,10 @@ Interceptor in localization:
 When click on fr link => /FirstSpringMVCProject/admissionForm.html?siteLanguage=fr is passed to the server.
 LocaleChangeInterceptor get that link and extract the value for siteLanguage.
 messageSource tells the base name. localeResolver resolves the file name for the required link
+
+---------------------------------------------------------------------------------------------------------
+http://localhost:8090/FirstSpringMVCProject/greet/welcomeWithError is used to demonstrate exception handling
+
+when there is a null pointer exception is thrown, Spring will look for a method annotated with @ExceptionHandler 
+and value of NullPointerException in the same class. It will take the returning string as name of the jsp and
+display it
