@@ -214,3 +214,15 @@ We don't need to write separate class for that. instead having following in disp
 		<property name="warnLogCategory" value="MVCLogger"/>
 	</bean>
 	
+-----------------------------------------------------------------------------------------------------------------------
+Check http header:
+install a plugin for browser to do that
+
+status code 200: server has processed the request successfully
+404 : requested resource not available
+500 : internal server error
+503 : server is currently unavailable (overloaded or down for maintenance)
+
+in exception handling : error with 200 status code : wrong
+can change status code by annotated error handling method with
+@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
