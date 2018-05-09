@@ -2,11 +2,17 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> <!-- to make placeholder work -->
 <html>
 <head>
+	<link rel="stylesheet" href="<spring:theme code='styleSheet'/>" type="text/css" />
 <title>Admission Form</title>
 </head>
 <body>
 <a href="/FirstSpringMVCProject/admissionForm.html?siteLanguage=en">English</a> | 
 <a href="/FirstSpringMVCProject/admissionForm.html?siteLanguage=fr">French</a>
+<br>
+
+<p><a href="/FirstSpringMVCProject/admissionForm.html?siteTheme=green">Green</a> |
+<a href="/FirstSpringMVCProject/admissionForm.html?siteTheme=red">Red</a></p>
+
 	<h1>STUDENT ADMISSION FORM FOR ENGINEERING COURSES</h1>
 	<form:errors path="student.*" />
 	<h2>${headerMessage}</h2>

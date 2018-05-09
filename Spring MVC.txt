@@ -161,3 +161,23 @@ needed to be modified as
 Localization:
 
 1. replace hardwired label in English with a new language
+
+---------------------------------------------------------------------------------------------------------
+
+Interceptor in theme:
+When click on red link => /FirstSpringMVCProject/admissionForm.html?siteTheme=red is passed to the server.
+ThemeChangeInterceptor get that link and extract the value for siteTheme.
+themeSource tells the base name and loads the files with the base name theme-. 
+Theme resolver resolves the file name for the required link
+<link rel="stylesheet" href="<spring:theme code='styleSheet'/>" type="text/css" /> tells to
+look at the stylesheet to resolve the placeholder
+<mvc:resources mapping="/cssresources/**" location="/WEB-INF/css/" /> tells
+/cssresources/ should be extracted as /WEB-INF/css/
+==> found the file and resolve by viewResolver
+cookieThemeResolver works just like cookieLocaleResolver
+----------------------------------------------------------------------------------------------------------
+
+Interceptor in localization:
+When click on fr link => /FirstSpringMVCProject/admissionForm.html?siteLanguage=fr is passed to the server.
+LocaleChangeInterceptor get that link and extract the value for siteLanguage.
+messageSource tells the base name. localeResolver resolves the file name for the required link

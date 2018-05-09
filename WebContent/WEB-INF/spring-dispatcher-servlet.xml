@@ -15,6 +15,9 @@
 	<bean name="/welcome.html" class="com.jeya.springmvc.controller.HelloController" />
 	
 	<context:component-scan base-package="com.jeya.springmvc.controller" />
+	
+	<mvc:resources mapping="/cssresources/**" location="/WEB-INF/css/" />
+	
 	<mvc:annotation-driven />
 	
 	<mvc:interceptors>
@@ -26,7 +29,20 @@
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 			<property name="paramName" value="siteLanguage"></property>
 		</bean>
+		
+		<bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+			<property name="paramName" value="siteTheme" />
+		</bean>
 	</mvc:interceptors>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/resources/studentmessages"></property>
+		<property name="cacheSeconds" value="1" />
+	</bean>
+	
+	<bean id="themeSource" class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+		<property name="basenamePrefix" value="theme-" />
+	</bean>
 	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -38,11 +54,6 @@
 		</property>
 	</bean>
 	
-	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="basename" value="/WEB-INF/resources/studentmessages"></property>
-		<property name="cacheSeconds" value="1" />
-	</bean>
-	
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
 		<property name="defaultLocale" value="fr" /> <!-- optional -->
 		<!-- if there is cookie for locale ==> use that -->
@@ -50,6 +61,13 @@
 		<!-- otherwise will wait for user provided parameter -->
 		
 		<property name="cookieName" value="localeCookie" />
-		<property name="cookieMaxAge" value="10" /> <!-- 3600 seconds -->
+		<property name="cookieMaxAge" value="10" /> <!-- 10 seconds -->
+	</bean>
+	
+	<bean id="themeResolver" class="org.springframework.web.servlet.theme.CookieThemeResolver">
+		<property name="defaultThemeName" value="green" />
+		
+		<property name="cookieName" value="themeCookie" />
+		<property name="cookieMaxAge" value="10" /> <!-- 10 seconds -->
 	</bean>
 </beans>
