@@ -18,7 +18,14 @@
 	<mvc:annotation-driven />
 	
 	<mvc:interceptors>
-		<bean class="com.jeya.springmvc.springspeccustom.DayOfWeekBasedAccessInterceptor" />
+		<mvc:interceptor>
+			<mvc:mapping path="/admissionForm.html" />
+			<bean class="com.jeya.springmvc.springspeccustom.DayOfWeekBasedAccessInterceptor" />
+		</mvc:interceptor>
+		
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="siteLanguage"></property>
+		</bean>
 	</mvc:interceptors>
 	
 	<bean id="viewResolver"
@@ -34,5 +41,15 @@
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="/WEB-INF/resources/studentmessages"></property>
 		<property name="cacheSeconds" value="1" />
+	</bean>
+	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="defaultLocale" value="fr" /> <!-- optional -->
+		<!-- if there is cookie for locale ==> use that -->
+		<!-- if no cookie ==> will take defaultLocale -->
+		<!-- otherwise will wait for user provided parameter -->
+		
+		<property name="cookieName" value="localeCookie" />
+		<property name="cookieMaxAge" value="10" /> <!-- 3600 seconds -->
 	</bean>
 </beans>

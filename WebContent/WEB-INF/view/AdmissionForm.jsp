@@ -5,6 +5,8 @@
 <title>Admission Form</title>
 </head>
 <body>
+<a href="/FirstSpringMVCProject/admissionForm.html?siteLanguage=en">English</a> | 
+<a href="/FirstSpringMVCProject/admissionForm.html?siteLanguage=fr">French</a>
 	<h1>STUDENT ADMISSION FORM FOR ENGINEERING COURSES</h1>
 	<form:errors path="student.*" />
 	<h2>${headerMessage}</h2>
