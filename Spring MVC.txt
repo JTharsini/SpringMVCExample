@@ -190,3 +190,8 @@ http://localhost:8090/FirstSpringMVCProject/greet/welcomeWithError is used to de
 when there is a null pointer exception is thrown, Spring will look for a method annotated with @ExceptionHandler 
 and value of NullPointerException in the same class. It will take the returning string as name of the jsp and
 display it
+
+handle exception in each and every controller class is painful. ==> @ControllerAdvice class
+to test that use: http://localhost:8090/FirstSpringMVCProject/admissionError
+important: class annotated with @ControllerAdvice should be in <context:component-scan base-package="com.jeya.springmvc.controller" />
+package

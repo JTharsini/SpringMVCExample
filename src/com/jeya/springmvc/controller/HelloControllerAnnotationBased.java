@@ -33,7 +33,6 @@ public class HelloControllerAnnotationBased {
 	@ExceptionHandler(value=IOException.class)
 	public String handleIOException(Exception e)
 	{
-		// logging Null Pointer Exception
 		System.out.println("IO Exception Occured: " + e);
 		return "ViewIOException";
 	}
@@ -44,7 +43,6 @@ public class HelloControllerAnnotationBased {
 	@ExceptionHandler(value=Exception.class)
 	public String handleException(Exception e)
 	{
-		// logging Null Pointer Exception
 		System.out.println("Exception Occured: " + e);
 		return "ViewException";
 	}

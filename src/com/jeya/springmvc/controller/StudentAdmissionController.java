@@ -48,8 +48,19 @@ public class StudentAdmissionController {
 		// this method annotated with ModelAttribute
 	}
 	
+	@RequestMapping(value = "/admissionError", method = RequestMethod.GET)
+	public ModelAndView getAdmissionFormWithError() throws NullPointerException{
+		String exceptionOccurred = "NULL_POINTER";
+		if("NULL_POINTER".equalsIgnoreCase(exceptionOccurred))
+		{
+			throw new NullPointerException("Null Pointer Exception");
+		}
+		ModelAndView modelAndView = new ModelAndView("AdmissionForm");
+		return modelAndView;
+	}
+	
 	@RequestMapping(value = "/admissionForm.html", method = RequestMethod.GET)
-	public ModelAndView getAdmissionForm() {
+	public ModelAndView getAdmissionForm(){
 		ModelAndView modelAndView = new ModelAndView("AdmissionForm");
 		//modelAndView.addObject("headerMessage", "Chava Hindu College");
 		return modelAndView;
