@@ -248,3 +248,31 @@ Communication between client and service provider : by SOAP protocol ==> SOAP ba
 
 mostly they use http while sending messages between them. SMTP, FTP, JMS etc also possible as per requirement
 
+REST:
+
+-REST - Representation State Transfer
+- Data and functionality kept in server, client can access or modify : resource
+- access or modify using its uri
+- response : a representation of resource + additional information (basic characteristic of resource representation it returned : format, size)
+(valid formats for copy of requested resource representation : xml, json, html, csv, pdf)
+Client uses additional information to know the type of resource and processed response based on the type of resource
+: using response, client should be able to do CRUD on resources according to the permission it has
+
+any number of intermediaries is allowed: response caching, server security, load balancing between client and server
+Eg: firewall server with server(client request passed through firewall server to stop insecure and malicious request)
+caching server with client(save response from server before it reaches the client so that client doesn't need to ask for server again for the same resource.)
+
+At any point client should not be able to tell whether it is connected directly to the server or to any intermediary placed in between : transparent
+
+every request by client is treated as new request ==> need to send all the information for server every time
+server is needed to insert a unique uri for a new resource sent by client so that when user
+
+Code on demand : one of REST guideline : Client system can be developed in advanced way such that it is capable of downloading and executing code in the form of Applets or
+Scripts. (Eg: the way Java Applet or Java Script runs in a browser Client (optional guideline: even if it is not allowed it is ok and still the system is said be a REST based
+system if it follows all other REST guidelines))
+
+When there is a caching server is installed: server should explicitly tell in the response whether that response is cacheable or not ==> caching server will cache
+only those responses which Server wants to..)
+
+REST is best realized using HTTP protocol (protocols other than http can be used to realize REST: but REST is the BEST)
+
