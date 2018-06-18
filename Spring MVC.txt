@@ -278,3 +278,15 @@ REST is best realized using HTTP protocol (protocols other than http can be used
 
 http://localhost/FirstSpringMVCProject/students
 
+@RequestMapping(value="/students", method = RequestMethod.GET) will direct the call from http://localhost/FirstSpringMVCProject/students uri to this method.
+Convert java object to JSON format : added dependency, made changes in dispatcher servlet and annotated with @ResponseBody.
+
+Normal case:
+Every controller method which handles the HTTP request which are made by the clients is supposed to specify the view name which spring framework later uses to prepare response
+which is sent to the client as the response.
+
+Rest API case:
+no need for view. we don't want spring framework to make use of any view to prepare the final response. Instead we want to send return value of this method to the client by simply
+performing the conversion from Java object to JSON format. for the conversion, need to specify @ResponseBody annotation.
+(Don't look for any view technology to prepare response. Instead, convert the return value to desired format and return to the client)
+(Java object to equivalent JSON text format : need dependencies for that)
