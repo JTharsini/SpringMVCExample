@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jeya.springmvc.model.Student;
@@ -148,5 +149,26 @@ public class StudentAdmissionController {
 
 		//modelAndView.addObject("headerMessage", "Chava Hindu College");
 		return modelAndView;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/students", method = RequestMethod.GET)
+	public List<Student> getStudentsList()
+	{
+		Student student1 = new Student();
+		student1.setStudentName("Khali");
+		
+		Student student2 = new Student();
+		student2.setStudentName("Nisha");
+		
+		Student student3 = new Student();
+		student3.setStudentName("Usha");
+		
+		List<Student> studentsList = new ArrayList<>();
+		studentsList.add(student1);
+		studentsList.add(student2);
+		studentsList.add(student3);
+		
+		return studentsList;
 	}
 }

@@ -276,3 +276,5 @@ only those responses which Server wants to..)
 
 REST is best realized using HTTP protocol (protocols other than http can be used to realize REST: but REST is the BEST)
 
+http://localhost/FirstSpringMVCProject/students
+
