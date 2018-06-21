@@ -8,9 +8,15 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.jeya.springmvc.springspeccustom.IsValidHobby;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties({"studentSkills", "studentAddress"})
+@JsonPropertyOrder({"studentDOB", "student_name", "studentMobile", "studentAddress", "studentHobby", "studentSkills"})
 public class Student {
 	@Pattern(regexp="[^0-9]*")
 	@JsonProperty("student_name")// studentName attribute will be shown as student_name in JSON response
@@ -26,7 +32,8 @@ public class Student {
 	private Long studentMobile2;
 	
 	@Past
-	private Date studentDOB; 
+	private Date studentDOB;
+	
 	private List<String> studentSkills;
 	
 	private Address studentAddress;

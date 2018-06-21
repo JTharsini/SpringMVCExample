@@ -292,3 +292,9 @@ performing the conversion from Java object to JSON format. for the conversion, n
 (Java object to equivalent JSON text format : need dependencies for that)
 
 @JsonProperty("student_name")private String studentName; // studentName attribute will be shown as student_name in JSON response
+
+@JsonPropertyOrder is used to specify the order of the keys in JSON string
+
+@JsonIgnoreProperties is used to ignore properties available in JSON string
+
+key with null value should not be returned with JSON string : @JsonInclude(JsonInclude.Include.NON_NULL)
