@@ -8,10 +8,12 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jeya.springmvc.springspeccustom.IsValidHobby;
 
 public class Student {
 	@Pattern(regexp="[^0-9]*")
+	@JsonProperty("student_name")// studentName attribute will be shown as student_name in JSON response
 	private String studentName;
 	
 	//@Size(min=2, max=30, message="please enter a value for student hobby field between {min} and {max} characters")
@@ -24,7 +26,7 @@ public class Student {
 	private Long studentMobile2;
 	
 	@Past
-	private Date studentDOB;
+	private Date studentDOB; 
 	private List<String> studentSkills;
 	
 	private Address studentAddress;

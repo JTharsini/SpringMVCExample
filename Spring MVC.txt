@@ -290,3 +290,5 @@ no need for view. we don't want spring framework to make use of any view to prep
 performing the conversion from Java object to JSON format. for the conversion, need to specify @ResponseBody annotation.
 (Don't look for any view technology to prepare response. Instead, convert the return value to desired format and return to the client)
 (Java object to equivalent JSON text format : need dependencies for that)
+
+@JsonProperty("student_name")private String studentName; // studentName attribute will be shown as student_name in JSON response
