@@ -306,3 +306,7 @@ public Student getStudent(@PathVariable("name") String studentName)
 
 whatever value specified after PathVariable annotation is extracted from REST request for a Request made by client and assigned to the variable created after PathVariable annotation.
 
+------------------------------------------------------------------------------------------------------------------------
+Separate REST APIs in a dedicated class for readability: by @RESTContriller
+If @RestController is annotated all the APIs in the class are REST. In that case, no need to add @ResponseBody annotation in each and every APIs.
+If @Controller is used need to specify @ResponseBody

@@ -154,36 +154,5 @@ public class StudentAdmissionController {
 	
 	/******************************************************************REST*****************************************************************************/
 	
-	@ResponseBody
-	@RequestMapping(value="/students", method = RequestMethod.GET)
-	public List<Student> getStudentsList()
-	{
-		Student student1 = new Student();
-		student1.setStudentName("Khali");
-		
-		Student student2 = new Student();
-		student2.setStudentName("Nisha");
-		
-		Student student3 = new Student();
-		student3.setStudentName("Usha");
-		
-		List<Student> studentsList = new ArrayList<>();
-		studentsList.add(student1);
-		studentsList.add(student2);
-		studentsList.add(student3);
-		
-		return studentsList;
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="/students/{name}", method = RequestMethod.GET)
-	public Student getStudent(@PathVariable("name") String studentName)
-	{
-		Student student = new Student();
-		student.setStudentName(studentName);
-		student.setStudentHobby("WWE");
-		return student;
-	}
-	
 	/******************************************************************REST*****************************************************************************/
 }
