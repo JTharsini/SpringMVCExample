@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -151,6 +152,8 @@ public class StudentAdmissionController {
 		return modelAndView;
 	}
 	
+	/******************************************************************REST*****************************************************************************/
+	
 	@ResponseBody
 	@RequestMapping(value="/students", method = RequestMethod.GET)
 	public List<Student> getStudentsList()
@@ -171,4 +174,16 @@ public class StudentAdmissionController {
 		
 		return studentsList;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/students/{name}", method = RequestMethod.GET)
+	public Student getStudent(@PathVariable("name") String studentName)
+	{
+		Student student = new Student();
+		student.setStudentName(studentName);
+		student.setStudentHobby("WWE");
+		return student;
+	}
+	
+	/******************************************************************REST*****************************************************************************/
 }

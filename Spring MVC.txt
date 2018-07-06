@@ -298,3 +298,11 @@ performing the conversion from Java object to JSON format. for the conversion, n
 @JsonIgnoreProperties is used to ignore properties available in JSON string
 
 key with null value should not be returned with JSON string : @JsonInclude(JsonInclude.Include.NON_NULL)
+
+------------------------------------------------------------------------------------------------------------------------
+@RequestMapping(value="/students/{name}", method = RequestMethod.GET)
+public Student getStudent(@PathVariable("name") String studentName)
+		{name} is assigned to studentName by the annotation PathVariable
+
+whatever value specified after PathVariable annotation is extracted from REST request for a Request made by client and assigned to the variable created after PathVariable annotation.
+
