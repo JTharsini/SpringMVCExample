@@ -45,7 +45,7 @@ public class StudentInfoRESTAPIController {
 	}
 	
 	// update a student record
-	@RequestMapping(value = "/students/{name}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/students/{name}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE)
 	public boolean updateStudent(@PathVariable("name") String studentName, @RequestBody Student student) {
 		System.out.println("Student Name: " + studentName);
 		System.out.println("Student's new name: " + student.getStudentName() + ", Student Hobby: " + student.getStudentHobby());

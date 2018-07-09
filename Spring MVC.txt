@@ -337,4 +337,11 @@ or
 
 Headers:
 Content-Type : application/json or application/xml
+
+just like "produces", "consumes" is used to restrict only one format supports in RequestMapping annotation
+consumes = MediaType.APPLICATION_XML_VALUE
+
+Send json as type with xml body: Exception Occured: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character '{' (code 123) in prolog; expected '<'
+Send json as type with json body: Exception Occured: org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'application/json' not supported
+because of consumes argument
 ------------------------------------------------------------------------------------------------------------------------
