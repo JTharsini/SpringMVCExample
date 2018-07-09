@@ -310,3 +310,7 @@ whatever value specified after PathVariable annotation is extracted from REST re
 Separate REST APIs in a dedicated class for readability: by @RESTContriller
 If @RestController is annotated all the APIs in the class are REST. In that case, no need to add @ResponseBody annotation in each and every APIs.
 If @Controller is used need to specify @ResponseBody
+------------------------------------------------------------------------------------------------------------------------
+SOAP UI, RESTlet Client, POSTMAN : REST API testing tools
+When a REST API supports more than one format, it's client responsibility to specify the format of response
+By default: when xml and json is available, xml will be returned: to change need to specify (In header tag Accept : application/json or application/xml)
