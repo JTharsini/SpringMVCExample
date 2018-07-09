@@ -318,4 +318,23 @@ restricted to one format is done by produces attribute of RequestMapping annotat
 produces=MediaType.APPLICATION_XML_VALUE or produces=MediaType.APPLICATION_JSON_VALUE
 now this API will support only for the type specified in produces. If client requests for any other type it will throw an Exception.
 : Exception Occured: org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
+------------------------------------------------------------------------------------------------------------------------
+HttpGet : client reads some data which is available in server side
+HttpPut : client updates some data which is kept in server side
+------------------------------------------------------------------------------------------------------------------------
+put request: @RequestBody: information is in JSON format : use JSON related jars and convert JAVA object (XML is also same)
+@RequestBody convert data: XML -> Java object or JSON -> Java object
 
+Put request
+
+Body:
+{"student_name":"Khali", "studentHobby": "hobby"}
+or
+<Student><student_name>Miyaav</student_name><studentHobby>Playing</studentHobby></Student>
+
+@RequestBody annotation needs the type of body to convert to Java object : in header client needs to send that. If this header is not specified==>
+"Exception Occured: org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'text/plain;charset=UTF-8' not supported"
+
+Headers:
+Content-Type : application/json or application/xml
+------------------------------------------------------------------------------------------------------------------------
