@@ -3,7 +3,9 @@ package com.jeya.springmvc.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,13 +48,14 @@ public class StudentInfoRESTAPIController {
 	
 	// update a student record
 	@RequestMapping(value = "/students/{name}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_XML_VALUE)
-	public boolean updateStudent(@PathVariable("name") String studentName, @RequestBody Student student) {
+	public ResponseEntity<Boolean> updateStudent(@PathVariable("name") String studentName, @RequestBody Student student) {
 		System.out.println("Student Name: " + studentName);
 		System.out.println("Student's new name: " + student.getStudentName() + ", Student Hobby: " + student.getStudentHobby());
 		
 		// find the matching student record using "studentName" from the DB
 		// update the matching student record with the information of student sent by the client
 		// return true if update is successfully done and return false if update is not done successfully
-		return true;
+		// return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(true, HttpStatus.NOT_FOUND);
 	}
 }

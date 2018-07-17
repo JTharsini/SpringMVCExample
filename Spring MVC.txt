@@ -345,3 +345,17 @@ Send json as type with xml body: Exception Occured: org.springframework.http.con
 Send json as type with json body: Exception Occured: org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'application/json' not supported
 because of consumes argument
 ------------------------------------------------------------------------------------------------------------------------
+Response: 
+Status code : informs client about what has happened while processing this request at the server. (failed, success & etc)
+200 OK : Client's Request is successfully processed by the server
+404 Not Found : Requested resource is unavailable at the server
+500 Internal Server Error : Some unexpected error has occurred while processing Client's request at the server
+
+Why status code when there is response body? even if response body is blank, we can make sure that request has been processed successfully
+response body, response header, response status code
+
+for the case where application is unable to find a student name entered because it is unavailable in database, also it will return 200 OK which is wrong, needed to be corrected.
+return new ResponseEntity<Void>(HttpStatus.NOT_FOUND); will return 404 as status code
+
+Response body: when there are two arguments in ResponseEntity: first one is response body
+return new ResponseEntity<Boolean>(true, HttpStatus.NOT_FOUND); // type of first argument is specified in the diamond operator
