@@ -359,3 +359,19 @@ return new ResponseEntity<Void>(HttpStatus.NOT_FOUND); will return 404 as status
 
 Response body: when there are two arguments in ResponseEntity: first one is response body
 return new ResponseEntity<Boolean>(true, HttpStatus.NOT_FOUND); // type of first argument is specified in the diamond operator
+
+Response header: overall response message:
+Content-Type: client is able to understand the format of response body
+Date: date and time in which this response has been produced
+Server: server which produced this response
+Transfer-Encoding: encoding technique used to transfer this response from server
+Cache-Control: Tells all caching mechanisms from server to client whether they may cache this object. measured in seconds
+Content-Encoding: The type of encoding used on the data
+Content-Language: The natural language or languages of the intended audience for the enclosed content
+Content-Location: An alternate location for the returned data
+Refresh: Used in redirection, or when a new resource has been created. This refresh redirects after 5 seconds
+
+List of HTTP headers can be found in web
+
+Adding new HTTP headers can be done by HttpHeaders class
+

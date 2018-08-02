@@ -3,6 +3,7 @@ package com.jeya.springmvc.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -56,6 +57,10 @@ public class StudentInfoRESTAPIController {
 		// update the matching student record with the information of student sent by the client
 		// return true if update is successfully done and return false if update is not done successfully
 		// return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<>(true, HttpStatus.NOT_FOUND);
+		
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.add("Key1", "value1");
+		
+		return new ResponseEntity<>(true, httpHeaders, HttpStatus.NOT_FOUND);
 	}
 }
