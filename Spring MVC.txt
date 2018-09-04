@@ -378,6 +378,7 @@ Adding new HTTP headers can be done by HttpHeaders class
 GET: some resources present in the server and user wants to read those
 UPDATE: some resources present in the server and user wants to modify them
 POST: user to make a request to create a new resource in server (should return status code 201 and REST API to read that resource created)
+DELETE: user wants to delete a resource that presents in server
 
 When a post method processes the request successfully, developer should not return 200 OK.
 200: the request user sent has been processed successfully

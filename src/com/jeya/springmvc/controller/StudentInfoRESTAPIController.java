@@ -76,4 +76,22 @@ public class StudentInfoRESTAPIController {
 		// location : http://localhost:8090/FirstSpringMVCProject/students/Khali
 		return new ResponseEntity<>(true, httpHeaders, HttpStatus.CREATED);// 201
 	}
+	
+	// delete a student record
+	@RequestMapping(value="/students/{name}", method=RequestMethod.DELETE)
+	public ResponseEntity<Boolean> deleteStudent(@PathVariable("name") String studentName)
+	{
+		System.out.println("Student Name: " + studentName);
+		// delete the student record from the database
+		return new ResponseEntity<>(true, HttpStatus.OK);
+	}
+	
+	// delete all student records
+	@RequestMapping(value="/students", method=RequestMethod.DELETE)
+	public ResponseEntity<Boolean> deleteStudents()
+	{
+		System.out.println("Student records are deleted");
+		// delete student records from the database
+		return new ResponseEntity<>(true, HttpStatus.OK);
+	}
 }
