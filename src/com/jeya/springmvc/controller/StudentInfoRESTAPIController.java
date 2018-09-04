@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.jeya.springmvc.model.Student;
 
@@ -62,5 +63,17 @@ public class StudentInfoRESTAPIController {
 		httpHeaders.add("Key1", "value1");
 		
 		return new ResponseEntity<>(true, httpHeaders, HttpStatus.NOT_FOUND);
+	}
+	
+	// create a new student record
+	@RequestMapping(value="/students", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Boolean> postStudent(@RequestBody Student student)
+	{
+		System.out.println("Student Name: " + student.getStudentName() + ", Student Hobby: " + student.getStudentHobby());
+		// insert the student record into the database
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.add("Location", ServletUriComponentsBuilder.fromCurrentRequest().path("/{name}").buildAndExpand(student.getStudentName()).toUri().toString());
+		// location : http://localhost:8090/FirstSpringMVCProject/students/Khali
+		return new ResponseEntity<>(true, httpHeaders, HttpStatus.CREATED);// 201
 	}
 }

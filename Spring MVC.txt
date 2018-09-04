@@ -375,3 +375,18 @@ List of HTTP headers can be found in web
 
 Adding new HTTP headers can be done by HttpHeaders class
 
+GET: some resources present in the server and user wants to read those
+UPDATE: some resources present in the server and user wants to modify them
+POST: user to make a request to create a new resource in server (should return status code 201 and REST API to read that resource created)
+
+When a post method processes the request successfully, developer should not return 200 OK.
+200: the request user sent has been processed successfully
+201: the resource user wants to create in server, has been created successfully
+
+HttpHeaders can be sent with response: return new ResponseEntity<>(true, httpHeaders, HttpStatus.CREATED);
+httpHeader : key-value pair
+
+ServletUriComponentsBuilder.fromCurrentRequest().path("/{name}").buildAndExpand(student.getStudentName()).toUri().toString(): 
+Whatever resource it has just created, that resource can be read by making a get request on this REST API.
+
+ 
