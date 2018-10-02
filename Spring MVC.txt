@@ -6,7 +6,8 @@ Typical servlet : HTML code embedded into Java code, Typical JSP : Java code emb
 
 M odel : data
 V iew : data
-C ontroller : manages application flow, makes a call to a some sort of service producing model and then passes on the model to the view.
+C ontroller : manages application flow, makes a call to a some sort of service producing model and then passes on the model to
+the view.
 
 Controller -> (Passes Model) -> to View
 
@@ -82,7 +83,7 @@ bean validator library
 
 JSR (Java Specification Request) standard by JCP (Java Community Process)
 
-******************************************************************************************************************************************
+********************************************************************************************************************************
 
 javax.servlet.ServletException: Error instantiating servlet class org.springframework.web.servlet.DispatcherServlet
 	org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
@@ -116,17 +117,17 @@ java.lang.ClassNotFoundException: org.springframework.web.servlet.DispatcherServ
 	org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	java.lang.Thread.run(Unknown Source)
 
------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 Solution: Project right click -> properties -> Deployment Assembly -> Add -> Java Build Path Entries -> Next -> Maven 
 Dependencies -> Finish
 -> Apply -> OK
-************************************************************************************************************************************************
+********************************************************************************************************************************
 Key for message for a validation: [Validation annotation name].[Object reference name].[Field name]
 If not found that key it will search for : [Validation annotation name].[Field name]
 If not found that key it will search for : [Validation annotation name].[Field type] [Eg: (Size.java.lang.String)]
 If not found that key it will search for : Size (default message by spring framework)
 
-************************************************************************************************************************************************
+********************************************************************************************************************************
 place holder for validation messages from property files:
 {0} : name of the field
 {1}, {2}, ... : arguments passed to the annotation
@@ -137,7 +138,7 @@ Spring MVC uses argument order alphabetically:
 to recommend in production: only in Development
 unnecessary performance issue
 
-************************************************************************************************************************************************
+********************************************************************************************************************************
 User name should not contain numeric values: By @Pattern (regular expression)
 Date of birth should not be in future : By @Past
 Mobile no <= 2222 : By @Max
