@@ -12,12 +12,16 @@ Controller -> (Passes Model) -> to View
 
 Inversion of Control or Dependency injection
 
-Browser (request) -> Front controller -> Handler Mapping (Scan the URL; tells the exact address of the component which can generate data for the web request requested for -> Front
-Controller -> Data generator (prepares data, creates Java object to hold the data - may take help of other Java classes if it is required to do the job) (Java Object which holding data + 
-Name of the component which is going to retrieve data from the Java Object + mixing with HTML to generate actual response -> Front Handler -> View resolver (tells the address of the view maker)
+Browser (request) -> Front controller -> Handler Mapping (Scan the URL; tells the exact address of the component which can 
+generate data for the web request requested for -> Front
+Controller -> Data generator (prepares data, creates Java object to hold the data - may take help of other Java classes if it is
+required to do the job) (Java Object which holding data + 
+Name of the component which is going to retrieve data from the Java Object + mixing with HTML to generate actual response ->
+Front Handler -> View resolver (tells the address of the view maker)
 -> Front Controller (Java Object) -> Final response builder (creates final response with HTML and Java Objects) -> Browser
 
-Client -> Dispatcher Servlet -> Handler Mapping -> Dispatcher Servlet -> Controller -> Dispatcher Servlet -> View resolver -> Dispatcher Servlet -> JSP/ Velocity/ Freemaker -> Dispatcher Servlet
+Client -> Dispatcher Servlet -> Handler Mapping -> Dispatcher Servlet -> Controller -> Dispatcher Servlet -> View resolver ->
+Dispatcher Servlet -> JSP/ Velocity/ Freemaker -> Dispatcher Servlet
 -> Client
 
 Java object with data : model
@@ -42,7 +46,8 @@ no need to extend
 no need to specify in dispatcher servlet
 If need to use annotation, need to add that package or class for component scan
 
-front controller reads spring-dispatcher-servlet to process further. When "context:component-scan" is used, it will load all the classes in the base package.
+front controller reads spring-dispatcher-servlet to process further. When "context:component-scan" is used, it will load all the
+classes in the base package.
 @RequestMapping is used to detect the method to execute for a url. matching url against RequestMapping values
 
 Methods to serve request : request handler methods
@@ -58,7 +63,8 @@ Handle: resend the form with BindingResult
 
 Need to bind except one value: @InitBinder and WebDataBinder
 
-By default date format : yyyy/mm/dd: to change it to yyyy****mm****dd - need to change property editors : CustomDateEditor with registerCustomEditor
+By default date format : yyyy/mm/dd: to change it to yyyy****mm****dd - need to change property editors : CustomDateEditor with
+registerCustomEditor
 Other examples for Property editors : FileEditor, ClassEditor, CustomMemberEditor
 SpringMVC uses property editor classes in order to perform type conversion while performing data binding.
 Customize data binding for a type: by editing property editor for that type
@@ -71,7 +77,8 @@ Form validation eg:
 2 < Hobby char count < 30 : By @Size annotation
 need to activate form validation by @Valid annotation
 
-to use form validation, need to use a third party implementation for JSR 303, JSR 349 : Eg: Hibernate validator library, Apache bean validator library
+to use form validation, need to use a third party implementation for JSR 303, JSR 349 : Eg: Hibernate validator library, Apache
+bean validator library
 
 JSR (Java Specification Request) standard by JCP (Java Community Process)
 
@@ -110,7 +117,8 @@ java.lang.ClassNotFoundException: org.springframework.web.servlet.DispatcherServ
 	java.lang.Thread.run(Unknown Source)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
-Solution: Project right click -> properties -> Deployment Assembly -> Add -> Java Build Path Entries -> Next -> Maven Dependencies -> Finish
+Solution: Project right click -> properties -> Deployment Assembly -> Add -> Java Build Path Entries -> Next -> Maven 
+Dependencies -> Finish
 -> Apply -> OK
 ************************************************************************************************************************************************
 Key for message for a validation: [Validation annotation name].[Object reference name].[Field name]
@@ -125,7 +133,8 @@ place holder for validation messages from property files:
 Spring MVC uses argument order alphabetically:
 ==> max - {1}, min - {2}
 
-<property name="cacheSeconds" value="1" /> : Tell Spring mvc to load changes in property files for every second of runtime: not to recommend in production: only in Development
+<property name="cacheSeconds" value="1" /> : Tell Spring mvc to load changes in property files for every second of runtime: not 
+to recommend in production: only in Development
 unnecessary performance issue
 
 ************************************************************************************************************************************************
@@ -138,7 +147,8 @@ Mobile no <= 2222 : By @Max
 @NotNull
 @NotEmpty : not supported by bean validation spec: only in Hibernate validator
 
-StudentHobby should be valid : One of the following: Music, Football, Cricket, Hockey : Custom form validation annotation is needed
+StudentHobby should be valid : One of the following: Music, Football, Cricket, Hockey : Custom form validation annotation is
+needed
 
 Application should work on all weekdays except Sunday: By interceptor
 
@@ -253,42 +263,52 @@ REST:
 -REST - Representation State Transfer
 - Data and functionality kept in server, client can access or modify : resource
 - access or modify using its uri
-- response : a representation of resource + additional information (basic characteristic of resource representation it returned : format, size)
+- response : a representation of resource + additional information (basic characteristic of resource representation it returned 
+: format, size)
 (valid formats for copy of requested resource representation : xml, json, html, csv, pdf)
 Client uses additional information to know the type of resource and processed response based on the type of resource
 : using response, client should be able to do CRUD on resources according to the permission it has
 
 any number of intermediaries is allowed: response caching, server security, load balancing between client and server
 Eg: firewall server with server(client request passed through firewall server to stop insecure and malicious request)
-caching server with client(save response from server before it reaches the client so that client doesn't need to ask for server again for the same resource.)
+caching server with client(save response from server before it reaches the client so that client doesn't need to ask for server 
+again for the same resource.)
 
-At any point client should not be able to tell whether it is connected directly to the server or to any intermediary placed in between : transparent
+At any point client should not be able to tell whether it is connected directly to the server or to any intermediary placed in 
+between : transparent
 
 every request by client is treated as new request ==> need to send all the information for server every time
 server is needed to insert a unique uri for a new resource sent by client so that when user
 
-Code on demand : one of REST guideline : Client system can be developed in advanced way such that it is capable of downloading and executing code in the form of Applets or
-Scripts. (Eg: the way Java Applet or Java Script runs in a browser Client (optional guideline: even if it is not allowed it is ok and still the system is said be a REST based
+Code on demand : one of REST guideline : Client system can be developed in advanced way such that it is capable of downloading 
+and executing code in the form of Applets or
+Scripts. (Eg: the way Java Applet or Java Script runs in a browser Client (optional guideline: even if it is not allowed it is 
+ok and still the system is said be a REST based
 system if it follows all other REST guidelines))
 
-When there is a caching server is installed: server should explicitly tell in the response whether that response is cacheable or not ==> caching server will cache
+When there is a caching server is installed: server should explicitly tell in the response whether that response is cacheable or 
+not ==> caching server will cache
 only those responses which Server wants to..)
 
 REST is best realized using HTTP protocol (protocols other than http can be used to realize REST: but REST is the BEST)
 
 http://localhost/FirstSpringMVCProject/students
 
-@RequestMapping(value="/students", method = RequestMethod.GET) will direct the call from http://localhost/FirstSpringMVCProject/students uri to this method.
+@RequestMapping(value="/students", method = RequestMethod.GET) will direct the call from http://localhost/FirstSpringMVCProject
+/students uri to this method.
 Convert java object to JSON format : added dependency, made changes in dispatcher servlet and annotated with @ResponseBody.
 
 Normal case:
-Every controller method which handles the HTTP request which are made by the clients is supposed to specify the view name which spring framework later uses to prepare response
+Every controller method which handles the HTTP request which are made by the clients is supposed to specify the view name which 
+spring framework later uses to prepare response
 which is sent to the client as the response.
 
 Rest API case:
-no need for view. we don't want spring framework to make use of any view to prepare the final response. Instead we want to send return value of this method to the client by simply
+no need for view. we don't want spring framework to make use of any view to prepare the final response. Instead we want to send 
+return value of this method to the client by simply
 performing the conversion from Java object to JSON format. for the conversion, need to specify @ResponseBody annotation.
-(Don't look for any view technology to prepare response. Instead, convert the return value to desired format and return to the client)
+(Don't look for any view technology to prepare response. Instead, convert the return value to desired format and return to the 
+client)
 (Java object to equivalent JSON text format : need dependencies for that)
 
 @JsonProperty("student_name")private String studentName; // studentName attribute will be shown as student_name in JSON response
@@ -304,19 +324,23 @@ key with null value should not be returned with JSON string : @JsonInclude(JsonI
 public Student getStudent(@PathVariable("name") String studentName)
 		{name} is assigned to studentName by the annotation PathVariable
 
-whatever value specified after PathVariable annotation is extracted from REST request for a Request made by client and assigned to the variable created after PathVariable annotation.
+whatever value specified after PathVariable annotation is extracted from REST request for a Request made by client and assigned 
+to the variable created after PathVariable annotation.
 
 ------------------------------------------------------------------------------------------------------------------------
 Separate REST APIs in a dedicated class for readability: by @RESTContriller
-If @RestController is annotated all the APIs in the class are REST. In that case, no need to add @ResponseBody annotation in each and every APIs.
+If @RestController is annotated all the APIs in the class are REST. In that case, no need to add @ResponseBody annotation in 
+each and every APIs.
 If @Controller is used need to specify @ResponseBody
 ------------------------------------------------------------------------------------------------------------------------
 SOAP UI, RESTlet Client, POSTMAN : REST API testing tools
 When a REST API supports more than one format, it's client responsibility to specify the format of response
-By default: when xml and json is available, xml will be returned: to change need to specify (In header tag Accept : application/json or application/xml)
+By default: when xml and json is available, xml will be returned: to change need to specify (In header tag Accept : 
+application/json or application/xml)
 restricted to one format is done by produces attribute of RequestMapping annotation
 produces=MediaType.APPLICATION_XML_VALUE or produces=MediaType.APPLICATION_JSON_VALUE
-now this API will support only for the type specified in produces. If client requests for any other type it will throw an Exception.
+now this API will support only for the type specified in produces. If client requests for any other type it will throw an 
+Exception.
 : Exception Occured: org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 ------------------------------------------------------------------------------------------------------------------------
 HttpGet : client reads some data which is available in server side
@@ -332,8 +356,10 @@ Body:
 or
 <Student><student_name>Miyaav</student_name><studentHobby>Playing</studentHobby></Student>
 
-@RequestBody annotation needs the type of body to convert to Java object : in header client needs to send that. If this header is not specified==>
-"Exception Occured: org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'text/plain;charset=UTF-8' not supported"
+@RequestBody annotation needs the type of body to convert to Java object : in header client needs to send that. If this header 
+is not specified==>
+"Exception Occured: org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'text/plain;charset=UTF-8' not 
+supported"
 
 Headers:
 Content-Type : application/json or application/xml
@@ -341,8 +367,10 @@ Content-Type : application/json or application/xml
 just like "produces", "consumes" is used to restrict only one format supports in RequestMapping annotation
 consumes = MediaType.APPLICATION_XML_VALUE
 
-Send json as type with xml body: Exception Occured: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character '{' (code 123) in prolog; expected '<'
-Send json as type with json body: Exception Occured: org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'application/json' not supported
+Send json as type with xml body: Exception Occured: org.springframework.http.converter.HttpMessageNotReadableException: JSON 
+parse error: Unexpected character '{' (code 123) in prolog; expected '<'
+Send json as type with json body: Exception Occured: org.springframework.web.HttpMediaTypeNotSupportedException: Content type 
+'application/json' not supported
 because of consumes argument
 ------------------------------------------------------------------------------------------------------------------------
 Response: 
@@ -351,10 +379,12 @@ Status code : informs client about what has happened while processing this reque
 404 Not Found : Requested resource is unavailable at the server
 500 Internal Server Error : Some unexpected error has occurred while processing Client's request at the server
 
-Why status code when there is response body? even if response body is blank, we can make sure that request has been processed successfully
+Why status code when there is response body? even if response body is blank, we can make sure that request has been processed 
+successfully
 response body, response header, response status code
 
-for the case where application is unable to find a student name entered because it is unavailable in database, also it will return 200 OK which is wrong, needed to be corrected.
+for the case where application is unable to find a student name entered because it is unavailable in database, also it will 
+return 200 OK which is wrong, needed to be corrected.
 return new ResponseEntity<Void>(HttpStatus.NOT_FOUND); will return 404 as status code
 
 Response body: when there are two arguments in ResponseEntity: first one is response body
@@ -377,7 +407,8 @@ Adding new HTTP headers can be done by HttpHeaders class
 
 GET: some resources present in the server and user wants to read those
 UPDATE: some resources present in the server and user wants to modify them
-POST: user to make a request to create a new resource in server (should return status code 201 and REST API to read that resource created)
+POST: user to make a request to create a new resource in server (should return status code 201 and REST API to read that 
+resource created)
 DELETE: user wants to delete a resource that presents in server
 
 When a post method processes the request successfully, developer should not return 200 OK.
